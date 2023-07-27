@@ -1,0 +1,67 @@
+{
+  "name": "vue-popper-lite",
+  "version": "0.0.0",
+  "description": "VueJS popover component based popper.js v2",
+  "main": "dist/ssr-stub.js",
+  "browser": "dist/vue-popper-lite.esm.js",
+  "module": "dist/vue-popper-lite.es.js",
+  "unpkg": "dist/vue-popper-lite.umd.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/vue-popper-lite.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-popper-lite.es.js",
+      "require": "./dist/ssr-stub.js",
+      "types": "./dist/vue-popper-lite.d.ts"
+    },
+    "./style.css": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-types": "vue-tsc -p tsconfig.build.json && api-extractor run -c api-extractor.json && rimraf dist/src",
+    "prepublishOnly": "npm run build && npm run build-types",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src"
+  },
+  "author": "Jambon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jambonn/vue-popper-lite/issues"
+  },
+  "keywords": [
+    "vue-popper-lite",
+    "vue-popover",
+    "vuejs-popper-lite",
+    "vuejs-popover",
+    "vue-3-popper-lite",
+    "vue-3-popover"
+  ],
+  "homepage": "https://github.com/jambonn/vue-popper-lite#readme",
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.34.4",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "prettier": "^2.8.4",
+    "rimraf": "^5.0.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.4.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.8"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8"
+  }
+}
