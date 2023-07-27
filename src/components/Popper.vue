@@ -62,12 +62,6 @@ const popperOptions = ref<Options>({
         offset: [props.offsetSkidding, props.offsetDistance],
       },
     },
-    {
-      name: 'computeStyles',
-      options: {
-        gpuAcceleration: false,
-      },
-    },
   ],
   strategy: props.strategy,
 });
@@ -354,18 +348,26 @@ watch(
 }
 
 .popper__content[data-popper-placement^='top'] > .popper__arrow {
-  bottom: calc(var(--popper-arrow-height, 8px) / 2 - var(--popper-arrow-height, 8px));
+  bottom: calc(
+    var(--popper-arrow-height, 8px) / 2 - var(--popper-arrow-height, 8px)
+  );
 }
 
 .popper__content[data-popper-placement^='bottom'] > .popper__arrow {
-  top: calc(var(--popper-arrow-width, 8px) / 2 - var(--popper-arrow-width, 8px));
+  top: calc(
+    var(--popper-arrow-width, 8px) / 2 - var(--popper-arrow-width, 8px)
+  );
 }
 
 .popper__content[data-popper-placement^='left'] > .popper__arrow {
-  right: calc(var(--popper-arrow-width, 8px) / 2 - var(--popper-arrow-width, 8px));
+  right: calc(
+    var(--popper-arrow-width, 8px) / 2 - var(--popper-arrow-width, 8px)
+  );
 }
 
 .popper__content[data-popper-placement^='right'] > .popper__arrow {
-  left: calc(var(--popper-arrow-height, 8px) / 2 - var(--popper-arrow-height, 8px));
+  left: calc(
+    var(--popper-arrow-height, 8px) / 2 - var(--popper-arrow-height, 8px)
+  );
 }
 </style>
