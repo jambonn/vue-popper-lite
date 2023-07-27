@@ -1,5 +1,5 @@
-import { defineConfig, Plugin } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig, Plugin } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 const genStub: Plugin = {
   name: 'gen-stub',
@@ -20,6 +20,7 @@ export default defineConfig({
     target: 'esnext',
     minify: false,
     emptyOutDir: true,
+    cssCodeSplit: true,
     lib: {
       entry: './src/index.ts',
       name: 'VuePopperLite',
@@ -33,7 +34,14 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo && assetInfo.name == 'index.css') {
+            return 'style.css';
+          }
+
+          return '[name]-[hash][extname]';
+        },
       },
     },
   },
-})
+});
