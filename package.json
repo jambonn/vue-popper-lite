@@ -26,6 +26,10 @@
     "prepublishOnly": "npm run build && npm run build-types",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:jambonn/vue-popper-lite.git"
+  },
   "author": "Jambon",
   "license": "MIT",
   "bugs": {
