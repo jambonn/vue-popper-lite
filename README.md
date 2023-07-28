@@ -7,7 +7,11 @@
 
 ## Example
 
-[Vue SFC Playground](https://play.vuejs.org/#eNrNVm1v0zAQ/itH9qFFalPGBkKhm3gREiAECBB8IIDcxE29JbZlO21h2n/nbCdpalpgvAj8ybl7zvfcc+7VF9F9KeNlTaMkmupMMWlAU1PL05SzSgpl4AIUncMlzJWoYIDQQed6KaSkauMZS2cYl8xYVMozwbWBShdwYk8ZDh7TshTwTqgyvza4nvLpxCfFdPhhaCVLYih+AUxztnQb3BJYYPhJGi2MkTqZTFarVcxldabjTFQTSbJzUtBJQCGNTt/W9OlrQJtYIlHESsEpN9MJaY+eqWA3nfjELQfISqI15i4Uy/HIBu3zgFGsKKiy1GyKNAKsIKMVJkGbEbKLCE7z8T0vtHI+FNxgeBfV8LH7ztYqBQeoC1WUZ160xt3pdYCE2ozbZOx6g5ZNUKeJ3W+1who830aXn61/JowR1R+T4LfK/4aLXQ+88a+KUNK5+T8kQJqLPhW7nll2V65/cxl/ToMw8z8UIWiHXa8cu18QoSW0hcJPbT6Xdht77KdPHT24sHE504j+nADjJeP0bsove2CcmrZqD53hbCuUqHmewJKo4bidcBvHCA6O3LqOBwFOuVKoAOxsiJu75XGS5DnjRYBsrCO4I9ceN0c6Y82+0ADZ2UdweNyCZ0Ll6FMkZ7UOArxxBA24XzJRSqxGoSFJZnQuVCOaFJoZJngCZKZFWRurG8CK5WYRZHLRY+fpFbKgts87od7Vw/ZlZ3xBFTO7KHtmS6bZjOFfDnZ0wfKc8l3Y7WqaJicwGLiE/TPcvvTlGUW4xrAqASUM3rDh8a2cFqGAzXHvc2JI18r2B/jxZIDDf/ABTmEXfT8ZE8hImQ1/IA5M4CaMfyThVdl5BnsJIvn97Hpd3k+uB7oqNzsv9jJzc+3fcXPp95KzzP9CV5GffQoFk8ya3IW1m3E7Du3gqSuOk0BRSYkZHuOwmKtgAB3elmt/Nr4H3eiMRpF/Y44rIuMzLTg+UF3CtHHoNEo8BWv75uWXoLF9LNZcnhfuoRjA7t2ID+MbOMO1CV0x1Zg2jWwC5HWJhIzGdsxZEdCxj0pWUvVC2uG0TYvga3f11NmMqikOOG/PFjQ732E/02tP/aWimqolFtL5DFEFxX8u6370+jld475zViKvy6bsPc5X1A1N5OhhD3C2Ie0ezrF94tTFtrzRj9Z4+XRblCXq1HB4J/nD75S+oXsUH3UqXn4FuCQbNA==)
+### Using Vue Popper Lite from Vue SFC
+[Vue SFC Playground](https://play.vuejs.org/#eNrNVdlu1DAU/RUrPEyRsqhqxcMwVNCqiCJoq07LC0HIk9xk3HFsy3Zmoeq/c+0snaaAyibw0/W527nHiX0TvFIqXtYQjIOJyTRTlhiwtTpIBauU1JacS6VAk0LLiowwMlIeiDizMErFJGnSMAE3FirFqQXcETLJ2dIbaFIy11C8SIO5tcqMk2S1WsVCVdcmzmSVKJotaAnJoH4aEEt1CRYTP884FYs0OPhQA8EYuURWLmiS0K7LTA+sSdJw6OiQjFNjsFqpWY612uimJbGalSVox9JVx+44TAYVCEfAStVnDKo1+Vte0sl2JIXF9D6r5ePsHutEI09QItAgska/1t1L9wQJdR3vk3HrEpG7pF4TZ987FQc0fFtdHjv/TForqz8mwW+N/4CLW4cN+FdF4FDY/0MCpDnfpuLWO8fup+e/+xgfp8Gw8z8UYXAcbl14dr8gQkfoXhRujd1wZ75sL8Ra851Rd43VQi1Kf4UNri4sZmzic+PMmNHT567YR5Yja6rw5/1EblzXAlWJCloxvhmTCD0cIrMxSCEkh5yJxXuaTf3+NUaGJA2mUEogVydpEJILiX+CDMnZelOCCMnVrBa2DskRFXhxAucu4UyBIFMqjMtIgzfAl2BZRskp1HjFhsSgLzKgWYEkW0qGfYEx2d1Xa48hE4jm4LRF9JlHb1MRu3u0GQTnRdFwCAf5HGdEnZZRJnldCTMmGhRQu7Mfkt1CO1kIUTTPmSi3K+O74nUPwqDRPaqoiq+NFPhU+YZp68Cxxg0Fhz14QcYIPvK0BmAMBhumgSuNjG6RijWZFAUrB0SwomIc9JmyTDqdtwhRzuXqrcesriHs8GwO2eIb+LVZN6TPNeCZLN0Jdb7mMWzcx9NTWKPdOyuZ17wd+DvOCzB4Co5jE3ZYixxpb8V5tideVzyQS3O8xn/WdEM5ol4NH+/FPvrB6Hd09+K9XsXbr3mGsjc=)
+
+### Using Vue Popper Lite from CDN
+[Vue from CDN](https://codepen.io/jambonn/pen/poQQzOB)
 
 ## Install
 
@@ -40,30 +44,31 @@ pnpm add vue-popper-lite
 ```html
 <!-- If your content is only a simple string, you can use the content prop -->
 <template>
-  <Popper content="This is the Popper content">
+  <v-popper content="This is the Popper content">
     <button slot="reference">
       Reference Element
     </button>
-  </Popper>
+  </v-popper>
 </template>
 
 <!-- If your content is more complex, you can use the content slot -->
 <template>
-  <Popper>
+  <v-popper>
     <div>This is the Popper content</div>
     <template #reference>
         <button>Trigger element</button>
     </template>
-  </Popper>
+  </v-popper>
 </template>
 
 <script>
   import { defineComponent } from "vue";
-  import Popper from "vue-popper-lite";
+  import { Popper } from "vue-popper-lite";
+  import "vue-popper-lite/style.css";
 
   export default defineComponent({
     components: {
-      Popper,
+      'VPopper': Popper,
     },
   });
 </script>

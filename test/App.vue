@@ -1,12 +1,12 @@
 <template>
   <div class="popperjs">
-    <popper trigger="hover" placement="right">
+    <v-popper trigger="hover" placement="right">
       <div>Popper Content</div>
 
       <template #reference>
         <button aria-describedby="tooltip">My button</button>
       </template>
-    </popper>
+    </v-popper>
   </div>
 </template>
 

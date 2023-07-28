@@ -18,9 +18,8 @@ export default defineConfig({
   plugins: [vue(), genStub],
   build: {
     target: 'esnext',
-    minify: false,
+    minify: true,
     emptyOutDir: true,
-    cssCodeSplit: true,
     lib: {
       entry: './src/index.ts',
       name: 'VuePopperLite',
@@ -33,13 +32,6 @@ export default defineConfig({
         exports: 'named',
         globals: {
           vue: 'Vue',
-        },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo && assetInfo.name == 'index.css') {
-            return 'style.css';
-          }
-
-          return '[name]-[hash][extname]';
         },
       },
     },

@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import VuePopper from '../src';
+import { Popper } from '../src';
 
 const app = createApp(App);
-app.component('Popper', VuePopper);
+app.component('VPopper', Popper);
 
 app.mount('#app');
