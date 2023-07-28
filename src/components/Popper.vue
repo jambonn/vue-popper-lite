@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
+import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import { createPopper } from '@popperjs/core/lib/popper-lite';
 import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow';
 import flip from '@popperjs/core/lib/modifiers/flip';
@@ -38,7 +38,7 @@ const popperJS = ref<Instance | null>(null);
 const timer = ref();
 const popperNode = ref(null);
 const showPopper = ref(false);
-const appendedToBody = ref(props.appendToBody);
+const appendedToBody = ref(false);
 const popperOptions = ref<Options>({
   placement: props.placement,
   modifiers: [
@@ -64,14 +64,6 @@ const popperOptions = ref<Options>({
     },
   ],
   strategy: props.strategy,
-});
-
-const isVisible = computed(() => {
-  if (props.appendToBody) {
-    return appendedToBody.value;
-  }
-
-  return true;
 });
 
 function on(
@@ -124,12 +116,22 @@ function doDestroy() {
     popperJS.value.destroy();
     popperJS.value = null;
   }
+
+  if (appendedToBody.value) {
+    appendedToBody.value = false;
+    document.body.removeChild(popperElm.value);
+  }
 }
 function updatePopper() {
   popperJS.value ? popperJS.value.update() : initializePopper();
 }
 function initializePopper() {
   nextTick(() => {
+    if (props.appendToBody && !appendedToBody.value) {
+      appendedToBody.value = true;
+      document.body.appendChild(popperElm.value);
+    }
+
     if (popperJS.value && popperJS.value.destroy) {
       popperJS.value.destroy();
     }
@@ -148,15 +150,11 @@ function initializePopper() {
 }
 function onMouseOver() {
   clearTimeout(timer.value);
-  timer.value = setTimeout(() => {
-    showPopper.value = true;
-  }, props.delayOnMouseOver);
+  timer.value = setTimeout(doShow, props.delayOnMouseOver);
 }
 function onMouseOut() {
   clearTimeout(timer.value);
-  timer.value = setTimeout(() => {
-    showPopper.value = false;
-  }, props.delayOnMouseOut);
+  timer.value = setTimeout(doClose, props.delayOnMouseOut);
 }
 function elementContains(elm: HTMLElement, otherElm: Node) {
   if (typeof elm.contains === 'function') {
@@ -183,7 +181,7 @@ function handleDocumentClick(e: MutationRecord) {
     return;
   }
 
-  showPopper.value = false;
+  doClose();
 }
 function destroyPopper() {
   off(referenceElm.value, 'click', doToggle);
@@ -195,12 +193,8 @@ function destroyPopper() {
   off(referenceElm.value, 'mouseover', onMouseOver);
   off(document, 'click', handleDocumentClick);
 
-  showPopper.value = false;
+  doClose();
   doDestroy();
-
-  if (appendedToBody.value) {
-    appendedToBody.value = false;
-  }
 }
 
 onMounted(() => {
@@ -220,12 +214,6 @@ onMounted(() => {
       on(popperElm.value, 'mouseover', onMouseOver);
       on(referenceElm.value, 'mouseout', onMouseOut);
       on(popperElm.value, 'mouseout', onMouseOut);
-      break;
-    case 'focus':
-      on(referenceElm.value, 'focus', onMouseOver);
-      on(popperElm.value, 'focus', onMouseOver);
-      on(referenceElm.value, 'blur', onMouseOut);
-      on(popperElm.value, 'blur', onMouseOut);
       break;
   }
 });
@@ -275,7 +263,7 @@ watch(
   () => props.disabled,
   (value) => {
     if (value) {
-      showPopper.value = false;
+      doClose();
     }
   }
 );
@@ -290,29 +278,22 @@ watch(
     >
       <slot name="reference"></slot>
     </div>
-    <teleport to="body" :disabled="!appendToBody">
-      <transition
-        :name="transition"
-        :enter-active-class="enterActiveClass"
-        :leave-active-class="leaveActiveClass"
-        @after-leave="doDestroy"
+    <transition
+      :name="transition"
+      :enter-active-class="enterActiveClass"
+      :leave-active-class="leaveActiveClass"
+      @after-leave="doDestroy"
+    >
+      <div
+        v-show="!disabled && showPopper"
+        ref="popperElm"
+        :class="['popper__content', contentClass]"
+        role="tooltip"
       >
-        <div
-          v-if="isVisible"
-          v-show="!disabled && showPopper"
-          ref="popperElm"
-          :class="['popper__content', contentClass]"
-          role="tooltip"
-        >
-          <slot>{{ content }}</slot>
-          <div
-            v-if="visibleArrow"
-            class="popper__arrow"
-            data-popper-arrow
-          ></div>
-        </div>
-      </transition>
-    </teleport>
+        <slot>{{ content }}</slot>
+        <div v-if="visibleArrow" class="popper__arrow" data-popper-arrow></div>
+      </div>
+    </transition>
   </div>
 </template>
 

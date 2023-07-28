@@ -6,7 +6,7 @@ import type {
 } from '@popperjs/core';
 export { Options, Instance, Placement, PositioningStrategy };
 export interface Props {
-  trigger?: 'clickToOpen' | 'clickToToggle' | 'hover' | 'focus';
+  trigger?: 'clickToOpen' | 'clickToToggle' | 'hover';
   placement?: Placement;
   delayOnMouseOver?: number;
   delayOnMouseOut?: number;
