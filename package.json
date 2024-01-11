@@ -3,8 +3,8 @@
   "version": "0.1.4",
   "description": "VueJS popover component based popper.js v2",
   "main": "dist/ssr-stub.js",
-  "browser": "dist/vue-popper-lite.es.js",
-  "module": "dist/vue-popper-lite.es.js",
+  "browser": "dist/vue-popper-lite.es.mjs",
+  "module": "dist/vue-popper-lite.es.mjs",
   "unpkg": "dist/vue-popper-lite.umd.js",
   "files": [
     "dist"
@@ -12,7 +12,7 @@
   "types": "dist/vue-popper-lite.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-popper-lite.es.js",
+      "import": "./dist/vue-popper-lite.es.mjs",
       "require": "./dist/ssr-stub.js",
       "types": "./dist/vue-popper-lite.d.ts"
     },

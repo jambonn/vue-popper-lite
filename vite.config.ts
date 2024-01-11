@@ -24,7 +24,11 @@ export default defineConfig({
       entry: './src/index.ts',
       name: 'VuePopperLite',
       formats: ['es', 'umd'],
-      fileName: (format) => `vue-popper-lite.${format}.js`,
+      fileName: (format: string) => {
+        const name = `vue-popper-lite.${format}`;
+        const extension = format === 'es' ? 'mjs' : 'js';
+        return `${name}.${extension}`;
+      },
     },
     rollupOptions: {
       external: ['vue'],
